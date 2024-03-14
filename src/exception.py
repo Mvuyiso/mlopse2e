@@ -1,13 +1,11 @@
 
 import sys
-import logging
-from datetime import datetime
-import os
-
+sys.path.insert(0, r"C:\Users\mvuyiso.gqwaru\OneDrive - Wabtec Corporation\Documents\MLOps\Krish Naik - End to End")
+from src.logger import logging
 
 
 def error_message_details(error, error_detail:sys):
-    _,_,exc_tb=error_detail #.exc_info()
+    _,_,exc_tb=error_detail.exc_info()
     file_name=exc_tb.tb_frame.f_code.co_filename
     error_message = "Error occured in py script [{0}], line number [{1}], error message: [{2}]".format(file_name, exc_tb.tb_lineno, str(error))
     
@@ -25,16 +23,5 @@ if __name__=="__main__":
     try:
         a=1/0
     except Exception as e:
-        LOG_FILE=f"exception-{datetime.now().strftime('%m_%d_%Y_%H_%M_%S')}.log"
-        logs_path=os.path.join(os.getcwd(),"logs",LOG_FILE)
-        os.makedirs(logs_path, exist_ok=True)
-
-        LOG_FILE_PATH=os.path.join(logs_path,LOG_FILE)
-
-        logging.basicConfig(
-            filename=LOG_FILE_PATH,
-            format='[ %(asctime)s ] %(lineno)d %(name)s - %(levelname)s - %(message)s',
-            level=logging.INFO,
-            )
         logging.info("Division by zerooo")
-        raise CustomException(e, sys.exc_info())
+        raise CustomException(e, sys)
