@@ -1,6 +1,6 @@
 
 import sys
-sys.path.insert(0, r"C:\Users\mvuyiso.gqwaru\OneDrive - Wabtec Corporation\Documents\MLOps\Krish Naik - End to End")
+#sys.path.insert(0, r"C:\Users\mvuyiso.gqwaru\OneDrive - Wabtec Corporation\Documents\MLOps\Krish Naik - End to End")
 from src.logger import logging
 
 
